@@ -1,0 +1,10 @@
+{
+  "id": "apple-reminders",
+  "name": "Apple Reminders",
+  "version": "1.0.0",
+  "minAppVersion": "1.7.2",
+  "description": "View and manage Apple Reminders from the Obsidian sidebar. macOS only.",
+  "author": "Isaque Pereira",
+  "authorUrl": "https://github.com/isaquepereira",
+  "isDesktopOnly": true
+}

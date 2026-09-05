@@ -1,0 +1,12 @@
+# Build artifacts (rebuilt by CI on release, see .github/workflows/release.yml)
+main.js
+bin/reminders-cli
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
