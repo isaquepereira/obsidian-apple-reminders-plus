@@ -4,7 +4,7 @@ import * as path from "path";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const VIEW_TYPE = "apple-reminders-view";
+const VIEW_TYPE = "apple-reminders-plus-view";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -136,7 +136,7 @@ export class RemindersView extends ItemView {
   }
 
   getViewType()    { return VIEW_TYPE; }
-  getDisplayText() { return "Apple Reminders"; }
+  getDisplayText() { return "Apple Reminders Plus"; }
   getIcon()        { return "check-circle-2"; }
 
   async onOpen() {
@@ -650,7 +650,7 @@ export default class AppleRemindersPlugin extends Plugin {
       return view;
     });
 
-    this.addRibbonIcon("check-circle-2", "Apple Reminders", () => {
+    this.addRibbonIcon("check-circle-2", "Apple Reminders Plus", () => {
       void this.activateView();
     });
 

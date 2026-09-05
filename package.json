@@ -1,7 +1,7 @@
 {
-  "name": "obsidian-apple-reminders",
+  "name": "obsidian-apple-reminders-plus",
   "version": "1.0.0",
-  "description": "Apple Reminders sidebar plugin for Obsidian",
+  "description": "Apple Reminders Plus sidebar plugin for Obsidian",
   "main": "main.js",
   "license": "MIT",
   "author": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/isaquepereira/obsidian-apple-reminders.git"
+    "url": "https://github.com/isaquepereira/obsidian-apple-reminders-plus.git"
   },
   "keywords": [
     "obsidian",

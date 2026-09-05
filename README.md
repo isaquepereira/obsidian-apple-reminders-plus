@@ -1,4 +1,4 @@
-# Apple Reminders for Obsidian
+# Apple Reminders Plus for Obsidian
 
 View and manage your Apple Reminders from a sidebar panel in Obsidian.
 
@@ -22,16 +22,16 @@ View and manage your Apple Reminders from a sidebar panel in Obsidian.
 Once this plugin is available in Obsidian's Community Plugins directory:
 
 1. Open **Settings → Community plugins → Browse**
-2. Search for "Apple Reminders"
+2. Search for "Apple Reminders Plus"
 3. Install and enable it
 
 ### Manual installation
 
-1. From the [latest release](https://github.com/isaquepereira/obsidian-apple-reminders/releases), download `main.js`, `manifest.json`, `styles.css`, and `reminders-cli-macos-universal.zip`
+1. From the [latest release](https://github.com/isaquepereira/obsidian-apple-reminders-plus/releases), download `main.js`, `manifest.json`, `styles.css`, and `reminders-cli-macos-universal.zip`
 2. Unzip `reminders-cli-macos-universal.zip` — it contains a `bin/reminders-cli` executable
-3. Copy everything into `<your-vault>/.obsidian/plugins/apple-reminders/`, so the folder looks like:
+3. Copy everything into `<your-vault>/.obsidian/plugins/apple-reminders-plus/`, so the folder looks like:
    ```
-   <your-vault>/.obsidian/plugins/apple-reminders/
+   <your-vault>/.obsidian/plugins/apple-reminders-plus/
      ├── main.js
      ├── manifest.json
      ├── styles.css
@@ -39,7 +39,7 @@ Once this plugin is available in Obsidian's Community Plugins directory:
          └── reminders-cli
    ```
 4. If macOS complains the helper isn't executable, run `chmod +x bin/reminders-cli` in that folder
-5. Reload Obsidian and enable **Apple Reminders** under Community plugins
+5. Reload Obsidian and enable **Apple Reminders Plus** under Community plugins
 
 ### Grant permissions
 
@@ -86,7 +86,7 @@ npm run lint
 
 ### Try it in a vault
 
-Copy `main.js`, `manifest.json`, `styles.css`, and `bin/` into `<vault>/.obsidian/plugins/apple-reminders/`, then reload Obsidian (or use a tool like [hot-reload](https://github.com/pjeby/hot-reload) during development).
+Copy `main.js`, `manifest.json`, `styles.css`, and `bin/` into `<vault>/.obsidian/plugins/apple-reminders-plus/`, then reload Obsidian (or use a tool like [hot-reload](https://github.com/pjeby/hot-reload) during development).
 
 ## Roadmap / ideas
 
