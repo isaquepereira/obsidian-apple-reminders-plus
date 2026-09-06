@@ -59,8 +59,8 @@ You can inspect and rebuild the helper yourself — see [Development](#developme
 
 ### Requirements
 
-- macOS with Xcode Command Line Tools (for `clang` and the `EventKit`/`AppKit` frameworks)
-- Node.js
+- Node.js — for the plugin itself (`main.js`)
+- macOS with Xcode Command Line Tools (for `clang` and the `EventKit`/`AppKit` frameworks) — only needed to (re)build the `reminders-cli` helper
 
 ### Setup
 
@@ -71,10 +71,12 @@ npm install
 ### Build
 
 ```bash
-npm run build          # compiles the CLI helper, type-checks, and bundles main.js (production)
-npm run dev             # watches and rebuilds main.js on change (TypeScript/esbuild only)
-npm run build:swift     # (re)compiles just the reminders-cli helper from objc/reminders-cli.m
+npm run build              # type-checks and bundles main.js (production) — cross-platform, no macOS needed
+npm run dev                # watches and rebuilds main.js on change
+npm run build:cli-helper   # (re)compiles the reminders-cli helper from objc/reminders-cli.m — macOS only
 ```
+
+The plugin's TypeScript/JavaScript build (`npm run build`) doesn't touch the native helper — that's what keeps it runnable in any CI environment. To actually *use* the plugin locally you still need a compiled `bin/reminders-cli`, which `npm run build:cli-helper` produces.
 
 ### Lint
 

@@ -1,4 +1,4 @@
-import { App, FileSystemAdapter, ItemView, Menu, Notice, Plugin, PluginSettingTab, Setting, ToggleComponent, WorkspaceLeaf, setIcon } from "obsidian";
+import { App, ItemView, Menu, Notice, Plugin, PluginSettingTab, Setting, ToggleComponent, WorkspaceLeaf, setIcon } from "obsidian";
 import { execFile } from "child_process";
 import * as path from "path";
 
@@ -58,25 +58,36 @@ function sortListNames(names: string[], order: ListOrder): string[] {
 
 // ─── Swift CLI bridge ─────────────────────────────────────────────────────────
 
-/** Resolve the path to the compiled Swift CLI binary. */
+interface BasePathAdapter {
+  getBasePath(): string;
+}
+
+function hasBasePath(adapter: unknown): adapter is BasePathAdapter {
+  return (
+    !!adapter &&
+    typeof (adapter as { getBasePath?: unknown }).getBasePath === "function"
+  );
+}
+
+/** Resolve the path to the compiled CLI helper binary. */
 let _cliBin: string | null = null;
 function getCliBin(plugin: Plugin): string {
   if (_cliBin) return _cliBin;
   const adapter = plugin.app.vault.adapter;
-  const pluginDir =
-    adapter instanceof FileSystemAdapter
-      ? path.join(adapter.getBasePath(), plugin.app.vault.configDir, "plugins", plugin.manifest.id)
-      : "";
+  const pluginDir = hasBasePath(adapter)
+    ? path.join(adapter.getBasePath(), plugin.app.vault.configDir, "plugins", plugin.manifest.id)
+    : "";
   _cliBin = path.join(pluginDir, "bin", "reminders-cli");
   return _cliBin;
 }
 
 function runCLI(bin: string, args: string[]): Promise<string> {
   return new Promise((resolve, reject) => {
-    execFile(bin, args, { timeout: 15000 }, (err, stdout, stderr) => {
+    execFile(bin, args, { timeout: 15000 }, (err: Error | null, stdout: string, stderr: string) => {
       if (err) {
-        console.error("[Apple Reminders CLI]", stderr || err.message);
-        reject(new Error(stderr?.trim() || err.message));
+        const message = stderr.trim() || err.message;
+        console.error("[Apple Reminders CLI]", message);
+        reject(new Error(message));
       } else {
         resolve(stdout.trim());
       }
