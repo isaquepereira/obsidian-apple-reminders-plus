@@ -1,7 +1,7 @@
 {
   "id": "apple-reminders-plus",
   "name": "Apple Reminders Plus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.7.2",
   "description": "View and manage Apple Reminders from a sidebar panel. macOS only.",
   "author": "Isaque Pereira",
